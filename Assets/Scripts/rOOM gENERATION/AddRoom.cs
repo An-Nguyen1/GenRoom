@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class AddRoom : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private RoomTemplates templates;
+
+    public RoomTemplates Templates { get => templates; set => templates = value; }
+
     void Start()
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
+        Templates.rooms.Add(this.gameObject);
     }
 }
